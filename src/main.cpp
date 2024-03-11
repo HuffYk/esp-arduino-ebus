@@ -230,15 +230,17 @@ String status_string() {
   result += "CPU chip speed: " + String(ESP.getCpuFreqMHz()) + " MHz\r\n";
   result += "Flash chip speed: " + String(ESP.getFlashChipSpeed()/1000000) + " MHz\r\n";
   result += "Flash size: " + String(ESP.getFlashChipSize()/1024/1024) + " MB\r\n";
-  result += "free heap: " + String(ESP.getFreeHeap()) + " B\r\n";
-  result += "SDK version: " + String(ESP.getSdkVersion()) + "\r\n\r\n";
-
+  result += "Free heap: " + String(ESP.getFreeHeap()) + " B\r\n";
+  result += "SDK version: " + String(ESP.getSdkVersion()) + "\r\n";
+  result += "Wifi SID: " + String(WiFi.SSID()) + "\r\n";
+  result += "Wifi IP address: " + String(WiFi.localIP().toString()) + "\r\n";
+  result += "Wifi rssi: " + String(WiFi.RSSI()) + " dBm\r\n\r\n";
+  
   result += "async mode: " + String(USE_ASYNCHRONOUS ? "true" : "false") + "\r\n";
   result += "software serial mode: " + String(USE_SOFTWARE_SERIAL ? "true" : "false") + "\r\n";
   result += "uptime: " + String(millis()/1000) + " s\r\n";
   result += "last_connect_time: " + String(lastConnectTime) + " ms\r\n";
   result += "reconnect_count: " + String(reconnectCount) + " \r\n";
-  result += "rssi: " + String(WiFi.RSSI()) + " dBm\r\n";
   result += "reset_code: " + String(last_reset_code) + "\r\n";
   result += "loop_duration: " + String(loopDuration) + " µs\r\n";
   result += "max_loop_duration: " + String(maxLoopDuration) + " µs\r\n";
