@@ -221,38 +221,37 @@ void saveParamsCallback () {
 String status_string() {
   String result;
 
-  result += "Firmware version: " + String(AUTO_VERSION) + "\r\n";
+  result += "firmware_version: " + String(AUTO_VERSION) + "\r\n";
 #ifdef ESP32
-  result += "ESP32 chip model: " + String(ESP.getChipModel()) + " Rev " + String(ESP.getChipRevision()) + "\r\n";
-  result += "ESP32 chip cores: " + String(ESP.getChipCores()) + "\r\n";
-  result += "ESP32 chip temperature: " + String(temperatureRead()) + " °C\r\n";
+  result += "esp32_chip_model: " + String(ESP.getChipModel()) + " Rev " + String(ESP.getChipRevision()) + "\r\n";
+  result += "esp32_chip_cores: " + String(ESP.getChipCores()) + "\r\n";
+  result += "esp32_chip_temperature: " + String(temperatureRead()) + " °C\r\n";
 #endif
-  result += "CPU chip speed: " + String(ESP.getCpuFreqMHz()) + " MHz\r\n";
-  result += "Flash chip speed: " + String(ESP.getFlashChipSpeed()/1000000) + " MHz\r\n";
-  result += "Flash size: " + String(ESP.getFlashChipSize()/1024/1024) + " MB\r\n";
-  result += "Free heap: " + String(ESP.getFreeHeap()) + " B\r\n";
-  result += "SDK version: " + String(ESP.getSdkVersion()) + "\r\n";
-  result += "Wifi SID: " + String(WiFi.SSID()) + "\r\n";
-  result += "Wifi IP address: " + String(WiFi.localIP().toString()) + "\r\n";
-  result += "Wifi rssi: " + String(WiFi.RSSI()) + " dBm\r\n\r\n";
-  
-  result += "async mode: " + String(USE_ASYNCHRONOUS ? "true" : "false") + "\r\n";
-  result += "software serial mode: " + String(USE_SOFTWARE_SERIAL ? "true" : "false") + "\r\n";
+  result += "cpu_chip_speed: " + String(ESP.getCpuFreqMHz()) + " MHz\r\n";
+  result += "flash_chip_speed: " + String(ESP.getFlashChipSpeed()/1000000) + " MHz\r\n";
+  result += "flash_size: " + String(ESP.getFlashChipSize()/1024/1024) + " MB\r\n";
+  result += "free_heap: " + String(ESP.getFreeHeap()) + " B\r\n";
+  result += "sdk_version: " + String(ESP.getSdkVersion()) + "\r\n";
+  result += "wifi_sid: " + String(WiFi.SSID()) + "\r\n";
+  result += "wifi_ip_address: " + String(WiFi.localIP().toString()) + "\r\n";
+  result += "wifi_rssi: " + String(WiFi.RSSI()) + " dBm\r\n";
+  result += "async_mode: " + String(USE_ASYNCHRONOUS ? "true" : "false") + "\r\n";
+  result += "software_serial_mode: " + String(USE_SOFTWARE_SERIAL ? "true" : "false") + "\r\n";
   result += "uptime: " + String(millis()/1000) + " s\r\n";
   result += "last_connect_time: " + String(lastConnectTime) + " ms\r\n";
   result += "reconnect_count: " + String(reconnectCount) + " \r\n";
   result += "reset_code: " + String(last_reset_code) + "\r\n";
   result += "loop_duration: " + String(loopDuration) + " µs\r\n";
   result += "max_loop_duration: " + String(maxLoopDuration) + " µs\r\n";
-  result += "nbr arbitrations: " + String((int)Bus._nbrArbitrations) + "\r\n";
-  result += "nbr restarts1: " + String((int)Bus._nbrRestarts1) + "\r\n";
-  result += "nbr restarts2: " + String((int)Bus._nbrRestarts2) + "\r\n";
-  result += "nbr lost1: " + String((int)Bus._nbrLost1) + "\r\n";
-  result += "nbr lost2: " + String((int)Bus._nbrLost2) + "\r\n";
-  result += "nbr won1: " + String((int)Bus._nbrWon1) + "\r\n";
-  result += "nbr won2: " + String((int)Bus._nbrWon2) + "\r\n";
-  result += "nbr late: " + String((int)Bus._nbrLate) + "\r\n";
-  result += "nbr errors: " + String((int)Bus._nbrErrors) + "\r\n";
+  result += "nbr_arbitrations: " + String((int)Bus._nbrArbitrations) + "\r\n";
+  result += "nbr_restarts1: " + String((int)Bus._nbrRestarts1) + "\r\n";
+  result += "nbr_restarts2: " + String((int)Bus._nbrRestarts2) + "\r\n";
+  result += "nbr_lost1: " + String((int)Bus._nbrLost1) + "\r\n";
+  result += "nbr_lost2: " + String((int)Bus._nbrLost2) + "\r\n";
+  result += "nbr_won1: " + String((int)Bus._nbrWon1) + "\r\n";
+  result += "nbr_won2: " + String((int)Bus._nbrWon2) + "\r\n";
+  result += "nbr_late: " + String((int)Bus._nbrLate) + "\r\n";
+  result += "nbr_errors: " + String((int)Bus._nbrErrors) + "\r\n";
   result += "pwm_value: " + String(get_pwm()) + "\r\n";
 
   return result;
